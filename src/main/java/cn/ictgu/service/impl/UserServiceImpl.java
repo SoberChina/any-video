@@ -1,17 +1,17 @@
 package cn.ictgu.service.impl;
 
+import cn.ictgu.service.UserService;
 import cn.ictgu.service.mapper.UserMapper;
 import cn.ictgu.service.model.User;
-import cn.ictgu.service.UserService;
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @AllArgsConstructor
-@Log4j2
+@Slf4j
 public class UserServiceImpl implements UserService {
 
     private final static int USER_SIZE = 20;
@@ -22,19 +22,19 @@ public class UserServiceImpl implements UserService {
     public User updateUserInfo(User user) {
         String openId = user.getOpenId();
         String avatar = user.getAvatar();
-        avatar = avatar.replace("http:","");
+        avatar = avatar.replace("http:", "");
         user.setAvatar(avatar);
         User origin = userMapper.selectByOpenId(openId);
-        if (origin == null){
+        if (origin == null) {
             // 首次登陆
             log.info("INSERT : " + user.toString());
             userMapper.insert(user);
 
-        }else {
+        } else {
             // 再次登陆，信息与之前不一致，则更新
             String md5 = user.getMd5();
             String originMd5 = origin.getMd5();
-            if (originMd5 != null && !md5.equals(originMd5)){
+            if (originMd5 != null && !md5.equals(originMd5)) {
                 userMapper.update(user);
             }
             user.setId(origin.getId());

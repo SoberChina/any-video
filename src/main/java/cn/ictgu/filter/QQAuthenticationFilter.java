@@ -1,6 +1,5 @@
 package cn.ictgu.filter;
 
-import com.alibaba.fastjson.JSON;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -63,9 +62,9 @@ public class QQAuthenticationFilter extends AbstractAuthenticationProcessingFilt
         String code = request.getParameter(CODE);
         String tokenAccessApi = String.format(TOKEN_ACCESS_API, accessTokenUri, grantType, clientId, clientSecret, code, redirectUri);
         QQToken qqToken = this.getToken(tokenAccessApi);
-        if (qqToken != null){
+        if (qqToken != null) {
             String openId = getOpenId(qqToken.getAccessToken());
-            if (openId != null){
+            if (openId != null) {
                 // 生成验证 authenticationToken
                 UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(qqToken.getAccessToken(), openId);
                 // 返回验证结果
@@ -75,11 +74,11 @@ public class QQAuthenticationFilter extends AbstractAuthenticationProcessingFilt
         return null;
     }
 
-    private QQToken getToken(String tokenAccessApi) throws IOException{
+    private QQToken getToken(String tokenAccessApi) throws IOException {
         Document document = Jsoup.connect(tokenAccessApi).get();
         String tokenResult = document.text();
         String[] results = tokenResult.split("&");
-        if (results.length == 3){
+        if (results.length == 3) {
             QQToken qqToken = new QQToken();
             String accessToken = results[0].replace("access_token=", "");
             int expiresIn = Integer.valueOf(results[1].replace("expires_in=", ""));
@@ -92,12 +91,12 @@ public class QQAuthenticationFilter extends AbstractAuthenticationProcessingFilt
         return null;
     }
 
-    private String getOpenId(String accessToken) throws IOException{
+    private String getOpenId(String accessToken) throws IOException {
         String url = openIdUri + accessToken;
         Document document = Jsoup.connect(url).get();
         String resultText = document.text();
         Matcher matcher = Pattern.compile("\"openid\":\"(.*?)\"").matcher(resultText);
-        if (matcher.find()){
+        if (matcher.find()) {
             return matcher.group(1);
         }
         return null;

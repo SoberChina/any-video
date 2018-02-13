@@ -1,8 +1,8 @@
 package cn.ictgu.filter.manager;
 
-import cn.ictgu.service.model.User;
 import cn.ictgu.constant.LoginTypeEnum;
 import cn.ictgu.service.UserService;
+import cn.ictgu.service.model.User;
 import cn.ictgu.tools.JsoupUtils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -26,7 +26,7 @@ public class QQAuthenticationManager implements AuthenticationManager {
 
     private final UserService userService;
 
-    public QQAuthenticationManager(UserService userService){
+    public QQAuthenticationManager(UserService userService) {
         this.userService = userService;
     }
 

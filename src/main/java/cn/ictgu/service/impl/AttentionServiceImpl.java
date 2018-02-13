@@ -1,8 +1,8 @@
 package cn.ictgu.service.impl;
 
+import cn.ictgu.service.AttentionService;
 import cn.ictgu.service.mapper.AttentionMapper;
 import cn.ictgu.service.model.Attention;
-import cn.ictgu.service.AttentionService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class AttentionServiceImpl implements AttentionService {
     public boolean attention(Long userId, Long otherId) {
         Attention attention = attentionMapper.select(userId, otherId);
 
-        if (attention == null){
+        if (attention == null) {
             // 未关注，则关注
             attentionMapper.insert(new Attention(userId, otherId));
             return true;

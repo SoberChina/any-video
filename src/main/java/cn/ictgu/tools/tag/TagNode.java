@@ -22,15 +22,14 @@ public class TagNode {
      */
     public TagNode next;
 
-    public TagNode(int headTwoCharMix){
+    public TagNode(int headTwoCharMix) {
         this.headTwoCharMix = headTwoCharMix;
     }
 
-    public TagNode(int headTwoCharMix, TagNode parent){
+    public TagNode(int headTwoCharMix, TagNode parent) {
         this.headTwoCharMix = headTwoCharMix;
         parent.next = this;
     }
-
 
 
 }

@@ -3,7 +3,7 @@ package cn.ictgu.tools;
 import cn.ictgu.bean.TagBean;
 import cn.ictgu.tools.tag.StringPointer;
 import cn.ictgu.tools.tag.TagNode;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -20,7 +20,8 @@ import java.util.NavigableSet;
  * 标签工具
  */
 @Component
-@Log4j2
+@Slf4j
+
 public class TagUtils implements InitializingBean {
 
     // 数组大小
@@ -119,7 +120,7 @@ public class TagUtils implements InitializingBean {
      * 文本预处理
      * 英文小写 -> 移除code -> 移除Html标签
      */
-    private String preHandle(String content){
+    private String preHandle(String content) {
         content = content.toLowerCase();
         content = content.replaceAll(" ", "").replaceAll("<code[\\s\\S]*?</code>", "");
         return Jsoup.parse(content).text();

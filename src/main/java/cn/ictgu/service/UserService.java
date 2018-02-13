@@ -13,6 +13,7 @@ public interface UserService {
 
     /**
      * 获取用户信息
+     *
      * @param userId 用户Id
      * @return 用户信息
      */

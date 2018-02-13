@@ -13,7 +13,7 @@ public class SeeController {
     private final SeeService seeService;
 
     @GetMapping("/see")
-    public String news(Model model){
+    public String news(Model model) {
         model.addAttribute("activeUsers", seeService.getActiveUsers());
         model.addAttribute("hubs", seeService.getRecommendHubs());
         model.addAttribute("newUsers", seeService.getNewUsers());

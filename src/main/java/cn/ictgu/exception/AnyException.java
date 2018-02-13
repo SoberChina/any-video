@@ -7,11 +7,11 @@ import cn.ictgu.constant.ExceptionEnum;
  */
 public class AnyException extends RuntimeException {
 
-    public AnyException(ExceptionEnum exceptionEnum){
+    public AnyException(ExceptionEnum exceptionEnum) {
         super(exceptionEnum.getMessage());
     }
 
-    public AnyException(String message){
+    public AnyException(String message) {
         super(message);
     }
 

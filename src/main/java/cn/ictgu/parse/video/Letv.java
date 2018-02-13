@@ -1,10 +1,10 @@
 package cn.ictgu.parse.video;
 
+import cn.ictgu.bean.response.Episode;
 import cn.ictgu.bean.response.Video;
 import cn.ictgu.constant.ExceptionEnum;
 import cn.ictgu.exception.AnyException;
 import cn.ictgu.parse.Parser;
-import cn.ictgu.bean.response.Episode;
 import cn.ictgu.tools.JsoupUtils;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -120,7 +120,7 @@ public class Letv implements Parser<Video> {
     }
 
     /**
-     *  乐视tkey算法
+     * 乐视tkey算法
      */
     private static String getTkey() {
         int a = (int) (new Date().getTime() / 1000);

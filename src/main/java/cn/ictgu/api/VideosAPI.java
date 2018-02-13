@@ -13,7 +13,7 @@ public class VideosAPI {
     private final RedisSourceManager redisSourceManager;
 
     @GetMapping("/videos/{type}")
-    public Object videos(@PathVariable("type") String type){
+    public Object videos(@PathVariable("type") String type) {
         return redisSourceManager.getVideosByKeyAndTag(redisSourceManager.VIDEOS_KEY, type);
     }
 

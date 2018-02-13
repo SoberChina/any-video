@@ -1,7 +1,52 @@
-# Created by .ignore support plugin (hsz.mobi)
+*.class
+.DS_Store
+*/.DS_Store
 
-video.iml
+# Package Files #
+*.jar
+*.war
+*.ear
 
-.idea
+#Eclipse Files#
+*.pydevproject
+.project
+.metadata
+.mymetadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
 
-.gitignore
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+#Idea Files#
+*.iml
+*.ipr
+*.iws
+.idea/
+
+
+#Maven Files#
+*/target/
+target/
+pom.xml.*
+*/pom.xml.*
+release.properties
+/commander-utils/captcha/*.png

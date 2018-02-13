@@ -3,7 +3,7 @@ package cn.ictgu.job;
 import cn.ictgu.bean.response.Video;
 import cn.ictgu.tools.JsoupUtils;
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -18,7 +18,7 @@ import java.util.List;
  * Created by Silence on 2017/2/12.
  */
 @Component
-@Log4j2
+@Slf4j
 @AllArgsConstructor
 public class QqCrawler {
 
@@ -36,6 +36,7 @@ public class QqCrawler {
      */
     @Scheduled(fixedRate = 60 * 60 * 1000)
     public void start() {
+        log.info("sssss");
         Document pcDocument = JsoupUtils.getDocWithPC(HOME_PAGE_PC);
         Document phoneTVDocument = JsoupUtils.getDocWithPC(HOME_PAGE_PHONE_TV);
         Document phoneMovieDocument = JsoupUtils.getDocWithPC(HOME_PAGE_PHONE_MOVIE);

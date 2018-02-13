@@ -2,8 +2,8 @@ package cn.ictgu.api;
 
 
 import cn.ictgu.bean.ResponseBean;
-import cn.ictgu.service.model.User;
 import cn.ictgu.service.AttentionService;
+import cn.ictgu.service.model.User;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -21,7 +21,7 @@ public class AttentionAPI {
      * 关注/取消关注 对方
      */
     @GetMapping("/user/attention/{otherId}")
-    public ResponseBean payAttention(@AuthenticationPrincipal UsernamePasswordAuthenticationToken principal, @PathVariable("otherId") Long otherId){
+    public ResponseBean payAttention(@AuthenticationPrincipal UsernamePasswordAuthenticationToken principal, @PathVariable("otherId") Long otherId) {
         User user = (User) principal.getPrincipal();
         Long userId = user.getId();
         Boolean flag = attentionService.attention(userId, otherId);

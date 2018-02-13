@@ -11,22 +11,22 @@ public class TimeUtils {
     private final static long MINUTE = 1000 * 60L;
 
 
-    public static String natureTime(Date date){
+    public static String natureTime(Date date) {
         Date now = new Date();
         long between = now.getTime() - date.getTime();
-        if (between > YEAR){
+        if (between > YEAR) {
             return ((between - YEAR) / YEAR + 1) + "年前，";
         }
-        if (between > MONTH){
+        if (between > MONTH) {
             return ((between - MONTH) / MONTH + 1) + "月前，";
         }
-        if (between > DAY){
+        if (between > DAY) {
             return ((between - DAY) / DAY + 1) + "天前，";
         }
-        if (between > HOUR){
+        if (between > HOUR) {
             return ((between - HOUR) / HOUR + 1) + "小时前，";
         }
-        if (between > MINUTE){
+        if (between > MINUTE) {
             return ((between - MINUTE) / MINUTE + 1) + "分钟前，";
         }
         return "刚刚，";

@@ -2,12 +2,12 @@ package cn.ictgu.service.impl;
 
 import cn.ictgu.constant.ExceptionEnum;
 import cn.ictgu.exception.AnyException;
+import cn.ictgu.service.HubItemService;
 import cn.ictgu.service.mapper.HubItemMapper;
 import cn.ictgu.service.mapper.HubMapper;
 import cn.ictgu.service.model.HubItem;
-import cn.ictgu.service.HubItemService;
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@Log4j2
+@Slf4j
 @AllArgsConstructor
 public class HubItemServiceImpl implements HubItemService {
 
@@ -47,7 +47,7 @@ public class HubItemServiceImpl implements HubItemService {
         Long categoryId = hubItemMapper.selectHubId(id, userId);
         if (hubItemMapper.delete(id, userId) > 0) {
             hubMapper.reduceAmountById(categoryId);
-        }else {
+        } else {
             throw new AnyException(ExceptionEnum.NOT_AUTHTICATION);
         }
     }

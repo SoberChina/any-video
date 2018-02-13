@@ -1,13 +1,16 @@
 package cn.ictgu.api;
 
 import cn.ictgu.bean.ResponseBean;
+import cn.ictgu.service.HubService;
 import cn.ictgu.service.model.Hub;
 import cn.ictgu.service.model.User;
-import cn.ictgu.service.HubService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -50,7 +53,7 @@ public class HubAPI {
         return hubService.getByUserId(user.getId());
     }
 
-    private Hub requestToHub(HttpServletRequest request){
+    private Hub requestToHub(HttpServletRequest request) {
         Hub hub = new Hub();
         hub.setName(request.getParameter("name"));
         hub.setDescription(request.getParameter("description"));

@@ -1,8 +1,8 @@
 package cn.ictgu.filter.manager;
 
-import cn.ictgu.service.model.User;
 import cn.ictgu.constant.LoginTypeEnum;
 import cn.ictgu.service.UserService;
+import cn.ictgu.service.model.User;
 import cn.ictgu.tools.JsoupUtils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

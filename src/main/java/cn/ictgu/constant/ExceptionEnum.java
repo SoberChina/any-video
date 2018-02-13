@@ -10,23 +10,22 @@ public enum ExceptionEnum {
     VIDEO_SEARCH_ERROR(10002, "视频搜索请求失败！"),
     VID_CANNOT_MATCH(10003, "无法匹配视频ID！"),
     NO_VIDEO(10004, "视频找不到！"),
-    NO_PARSER(10005, "找不到合适的解析器！")
-    ;
+    NO_PARSER(10005, "找不到合适的解析器！");
 
     private int code;
 
     private String message;
 
-    ExceptionEnum(int code, String message){
+    ExceptionEnum(int code, String message) {
         this.code = code;
         this.message = message;
     }
 
-    public int getCode(){
+    public int getCode() {
         return code;
     }
 
-    public String getMessage(){
+    public String getMessage() {
         return message;
     }
 }

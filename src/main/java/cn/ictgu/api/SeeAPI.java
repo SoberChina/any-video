@@ -16,17 +16,17 @@ public class SeeAPI {
     private SeeService seeService;
 
     @GetMapping("/see/new/{page}")
-    public List<SimpleSource> getNewSources(@PathVariable(value = "page") Integer page){
+    public List<SimpleSource> getNewSources(@PathVariable(value = "page") Integer page) {
         return seeService.getNewItems(page);
     }
 
     @GetMapping("/see/hot/{page}")
-    public List<SimpleSource> getHotSources(@PathVariable(value = "page") Integer page){
+    public List<SimpleSource> getHotSources(@PathVariable(value = "page") Integer page) {
         return seeService.getHotItems(page);
     }
 
     @GetMapping("/see/recommend/{page}")
-    public List<SimpleSource> getRecommendSources(@PathVariable(value = "page") Integer page){
+    public List<SimpleSource> getRecommendSources(@PathVariable(value = "page") Integer page) {
         return seeService.getRecommendItems(page);
     }
 }

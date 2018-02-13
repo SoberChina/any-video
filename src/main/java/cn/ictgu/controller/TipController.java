@@ -1,7 +1,7 @@
 package cn.ictgu.controller;
 
-import cn.ictgu.service.model.Tip;
 import cn.ictgu.service.TipService;
+import cn.ictgu.service.model.Tip;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -4,7 +4,6 @@ import cn.ictgu.bean.response.Article;
 import cn.ictgu.bean.response.Episode;
 import cn.ictgu.parse.Parser;
 import cn.ictgu.tools.JsoupUtils;
-import cn.ictgu.tools.TagUtils;
 import org.jsoup.nodes.Document;
 
 import java.util.List;
@@ -17,7 +16,7 @@ public class Jianshu implements Parser<Article> {
 
     private Pattern pattern;
 
-    public Jianshu(){
+    public Jianshu() {
         pattern = Pattern.compile("img.*?src=\"(.*?)\"");
     }
 
@@ -38,7 +37,7 @@ public class Jianshu implements Parser<Article> {
         content = content.replaceAll("<table>", "<table class='ui table'>");
         article.setContent(content);
         Matcher matcher = pattern.matcher(content);
-        if (matcher.find()){
+        if (matcher.find()) {
             article.setImage(matcher.group(1));
         }
         article.setCss("/css/jianshu.css");

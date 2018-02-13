@@ -1,7 +1,6 @@
 package cn.ictgu.filter;
 
 import cn.ictgu.tools.JsoupUtils;
-import com.alibaba.fastjson.JSON;
 import org.jsoup.nodes.Document;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -45,25 +44,25 @@ public class GithubAuthenticationFilter extends AbstractAuthenticationProcessing
         String code = request.getParameter("code");
         String state = request.getParameter("state");
         GithubToken githubToken = this.getToken(code, state);
-        if (githubToken != null){
+        if (githubToken != null) {
             // 生成验证 authenticationToken
             UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(githubToken.getAccessToken(), githubToken.getScope());
             // 返回验证结果
             return this.getAuthenticationManager().authenticate(authRequest);
-    }
+        }
         return null;
     }
 
-    private GithubToken getToken(String code, String state) throws IOException{
+    private GithubToken getToken(String code, String state) throws IOException {
         Document document = JsoupUtils.getDocWithPC(accessTokenUri
-                                + "?client_id=" + clientId
-                                + "&code=" + code
-                                + "&client_secret=" + clientSecret
-                                + "&redirect_uri=" + redirectUri
-                                + "&state=" + state);
+                + "?client_id=" + clientId
+                + "&code=" + code
+                + "&client_secret=" + clientSecret
+                + "&redirect_uri=" + redirectUri
+                + "&state=" + state);
         String tokenResult = document.text();
         String[] results = tokenResult.split("&");
-        if (results.length == 3){
+        if (results.length == 3) {
             GithubToken githubToken = new GithubToken();
             String accessToken = results[0].replace("access_token=", "");
             String scope = results[1].replace("scope=", "");

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TagBean implements Comparable<TagBean>{
+public class TagBean implements Comparable<TagBean> {
 
     // 标签名
     private String name;
@@ -18,7 +18,7 @@ public class TagBean implements Comparable<TagBean>{
     private Integer score;
 
     // 增加分数
-    public void addScore(Integer num){
+    public void addScore(Integer num) {
         this.score = this.score + num;
     }
 

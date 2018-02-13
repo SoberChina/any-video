@@ -19,12 +19,12 @@ public class ResponseBean {
 
     private Object data;
 
-    public ResponseBean(int code, String message){
+    public ResponseBean(int code, String message) {
         this.code = code;
         this.message = message;
     }
 
-    public ResponseBean(ExceptionEnum exceptionEnum){
+    public ResponseBean(ExceptionEnum exceptionEnum) {
         this.code = exceptionEnum.getCode();
         this.message = exceptionEnum.getMessage();
     }
@@ -32,14 +32,14 @@ public class ResponseBean {
     /**
      * 成功
      */
-    public static ResponseBean ok(){
+    public static ResponseBean ok() {
         return new ResponseBean(200, "success");
     }
 
     /**
      * 成功
      */
-    public static ResponseBean ok(Object object){
+    public static ResponseBean ok(Object object) {
         return new ResponseBean(200, "success", object);
     }
 

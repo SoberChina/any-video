@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserService userService;
 
     @Autowired
-    private void setUserService(UserService userService){
+    private void setUserService(UserService userService) {
         this.userService = userService;
     }
 
@@ -63,7 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * 自定义 QQ登录 过滤器
      */
-    private QQAuthenticationFilter qqAuthenticationFilter(){
+    private QQAuthenticationFilter qqAuthenticationFilter() {
         QQAuthenticationFilter authenticationFilter = new QQAuthenticationFilter("/login/qq");
         SimpleUrlAuthenticationSuccessHandler successHandler = new SimpleUrlAuthenticationSuccessHandler();
         successHandler.setAlwaysUseDefaultTargetUrl(true);
@@ -76,7 +76,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * 自定义 Github登录 过滤器
      */
-    private GithubAuthenticationFilter githubAuthenticationFilter(){
+    private GithubAuthenticationFilter githubAuthenticationFilter() {
         GithubAuthenticationFilter authenticationFilter = new GithubAuthenticationFilter("/login/github");
         SimpleUrlAuthenticationSuccessHandler successHandler = new SimpleUrlAuthenticationSuccessHandler();
         successHandler.setAlwaysUseDefaultTargetUrl(true);

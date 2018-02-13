@@ -1,10 +1,10 @@
 package cn.ictgu.controller;
 
-import cn.ictgu.service.model.Hub;
-import cn.ictgu.service.model.User;
 import cn.ictgu.service.AttentionService;
 import cn.ictgu.service.HubService;
 import cn.ictgu.service.UserService;
+import cn.ictgu.service.model.Hub;
+import cn.ictgu.service.model.User;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -46,9 +46,9 @@ public class UserController {
      */
     @GetMapping("/info/{id}")
     public String user(@AuthenticationPrincipal UsernamePasswordAuthenticationToken authenticationToken, @PathVariable("id") Long userId, Model model) {
-        if (authenticationToken != null){
+        if (authenticationToken != null) {
             User user = (User) authenticationToken.getPrincipal();
-            if (userId.equals(user.getId())){
+            if (userId.equals(user.getId())) {
                 return "redirect:/user";
             }
             boolean isAttention = attentionService.isAttention(user.getId(), userId);

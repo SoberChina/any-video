@@ -4,16 +4,17 @@ import cn.ictgu.constant.ExceptionEnum;
 import cn.ictgu.exception.AnyException;
 import cn.ictgu.parse.article.Jianshu;
 import cn.ictgu.parse.article.Weixin;
-import cn.ictgu.parse.video.*;
+import cn.ictgu.parse.video.Letv;
+import cn.ictgu.parse.video.Tencent;
 import cn.ictgu.tools.UrlUtils;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Service
-@Log4j2
+@Slf4j
 public class VideoParserManager implements ParserManager {
 
     private Map<String, Parser> parserMap;

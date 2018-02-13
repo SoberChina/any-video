@@ -9,7 +9,7 @@ import java.io.Serializable;
  * 用户
  */
 @Data
-public class User implements Serializable{
+public class User implements Serializable {
     private Long id;
 
     // 用户唯一身份识别 ID

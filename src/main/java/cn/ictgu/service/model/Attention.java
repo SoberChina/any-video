@@ -9,7 +9,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Attention {
 
-    public Attention(Long userId, Long otherId){
+    public Attention(Long userId, Long otherId) {
         this.userId = userId;
         this.otherId = otherId;
     }

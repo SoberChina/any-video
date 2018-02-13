@@ -47,9 +47,9 @@ public class SourceController {
         Set<String> titleKeys = titleTags.keySet();
         for (String key : titleKeys) {
             TagBean tagBean = contentTag.get(key);
-            if (tagBean == null){
+            if (tagBean == null) {
                 contentTag.put(key, new TagBean(key, TITLE_SCORE));
-            }else {
+            } else {
                 tagBean.addScore(TITLE_SCORE);
             }
         }

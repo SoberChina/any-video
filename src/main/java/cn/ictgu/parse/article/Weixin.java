@@ -19,7 +19,7 @@ public class Weixin implements Parser<Article> {
 
     private Pattern pattern;
 
-    public Weixin(){
+    public Weixin() {
         pattern = Pattern.compile("msg_cdn_url = \"(.*?)\"");
     }
 
@@ -39,7 +39,7 @@ public class Weixin implements Parser<Article> {
         content = content.replaceAll("data-src", "width=\"80%\" src");
         article.setContent(content);
         Matcher matcher = pattern.matcher(document.html());
-        if (matcher.find()){
+        if (matcher.find()) {
             article.setImage(matcher.group(1));
         }
         return article;
